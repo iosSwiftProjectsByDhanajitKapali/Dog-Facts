@@ -82,6 +82,7 @@ extension NewFactsViewController {
     
     ///Use this method to animate the position of the Dog Image, and then make the APi call to fetch a New Dog Fact
     func animateDogImage() {
+        //animate the Dog Image from center to top
         dogImageView.center = self.view.center
         UIView.animate(withDuration: 2, animations: {
             self.dogImageView.frame = CGRect(x: self.view.center.x-50, y: self.view.center.y - (self.view.center.y)/1.2, width: 100, height: 100)
