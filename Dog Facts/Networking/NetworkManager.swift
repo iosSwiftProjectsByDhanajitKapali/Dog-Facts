@@ -11,6 +11,15 @@ struct NetworkManager{
     
     let BaseURl = "https://dog-api.kinduff.com/"
     
+    /**
+     Fetch Data from API as per the End-Point passed
+
+     - Parameter forEndPoint: URL End-Point
+
+     - Parameter resultType: Type of expected result
+
+     - Parameter completionHandler: Returns a Result<T,ResponseStatus>.
+     */
     func getApiData<T:Codable>(forEndPoint : String, resultType:T.Type, completionHandler:@escaping(Result<T, ResponseStatus>)-> Void){
         
         let urlString = BaseURl + forEndPoint
