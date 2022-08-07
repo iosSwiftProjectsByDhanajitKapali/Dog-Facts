@@ -14,14 +14,36 @@ class NewFactsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialSetup()
         
-        //setting self delegate of presenter
-        presenter = NewFactsPresenter(withDelegate : self)
+        addGradientLayer()
         
         presenter.getNewDogFact()
     }
 
 
+}
+
+
+
+// MARK: - Private Methods
+extension NewFactsViewController {
+    func initialSetup() {
+        //setting self delegate of presenter
+        presenter = NewFactsPresenter(withDelegate : self)
+    }
+    
+    func addGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        let gradientColors = [
+            UIColor.systemPurple.cgColor,
+            UIColor.systemBlue.cgColor,
+            UIColor.systemTeal.cgColor,
+        ]
+        gradientLayer.colors = gradientColors
+        self.view.layer.addSublayer(gradientLayer)
+    }
 }
 
 //MARK: - Presenter Methods
