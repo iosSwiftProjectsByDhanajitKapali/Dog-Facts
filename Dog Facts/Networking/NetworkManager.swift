@@ -8,9 +8,18 @@
 import Foundation
 
 struct NetworkManager{
-    func getApiData<T:Codable>(forUrl : URL, resultType:T.Type, completionHandler:@escaping(Result<T, ResponseStatus>)-> Void){
+    
+    let BaseURl = "https://dog-api.kinduff.com/"
+    
+    func getApiData<T:Codable>(forEndPoint : String, resultType:T.Type, completionHandler:@escaping(Result<T, ResponseStatus>)-> Void){
         
-        URLSession.shared.dataTask(with: forUrl) { (data, response, error) in
+        let urlString = BaseURl + forEndPoint
+        guard let url = URL(string: urlString) else {
+            completionHandler(.failure(.invalidEndPoint))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let _ = error {
                 print(Constants.ErrorMessage.API_CALL_ERROR)
@@ -42,6 +51,7 @@ struct NetworkManager{
 
 enum ResponseStatus : Error{
     case error(err : String)
+    case invalidEndPoint
     case invalidResponse
     case invalidData
     case decodingError(err : String)

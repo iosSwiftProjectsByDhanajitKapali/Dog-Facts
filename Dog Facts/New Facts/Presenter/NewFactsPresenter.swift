@@ -23,11 +23,12 @@ class NewFactsPresenter {
 
 // MARK: - Public Methods
 extension NewFactsPresenter {
+    
+    ///Use this Method to make an API call to fetch a new Dog Fact
     public func getNewDogFact() {
-        let urlString = "https://dog-api.kinduff.com/api/facts?number=1"
-        let url = URL(string: urlString)
+        let endPoint = "api/facts?number=1"
         //make the call
-        NetworkManager().getApiData(forUrl: url!, resultType: NewFactsModel.self) { [weak self] result in
+        NetworkManager().getApiData(forEndPoint: endPoint, resultType: NewFactsModel.self) { [weak self] result in
             switch result{
             case .success(let dogFacts):
                 self?.processDogFact(dogFacts: dogFacts)

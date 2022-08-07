@@ -67,6 +67,7 @@ extension NewFactsViewController {
         self.refreshButton.layer.zPosition = 1
     }
     
+    ///Use this Method to add a Gradient Layer in the  view
     func addGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
@@ -79,6 +80,7 @@ extension NewFactsViewController {
         self.view.layer.addSublayer(gradientLayer)
     }
     
+    ///Use this method to animate the position of the Dog Image, and then make the APi call to fetch a New Dog Fact
     func animateDogImage() {
         dogImageView.center = self.view.center
         UIView.animate(withDuration: 2, animations: {
