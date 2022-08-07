@@ -31,7 +31,10 @@ extension NewFactsPresenter {
             switch result{
             case .success(let dogFacts):
                 //print(dogFacts.facts.count)
-                self.delegate?.presentDogFact(fact: dogFacts.facts.first ?? "")
+                DispatchQueue.main.async {
+                    self.delegate?.presentDogFact(fact: dogFacts.facts.first ?? "")
+                }
+                
                 
             case .failure(let error):
                 print(error.localizedDescription)

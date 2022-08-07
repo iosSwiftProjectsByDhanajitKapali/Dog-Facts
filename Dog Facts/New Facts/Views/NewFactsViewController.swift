@@ -24,8 +24,16 @@ class NewFactsViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-
-
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var factLabel: UILabel!
+    @IBOutlet weak var refreshButton: UIButton!
+    
+    // MARK: - IBActions
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        self.presenter.getNewDogFact()
+    }
+    
 }
 
 
@@ -37,10 +45,13 @@ extension NewFactsViewController {
         
         addGradientLayer()
         
+        self.refreshButton.layer.cornerRadius = 10
         self.view.addSubview(dogImageView)
+        self.factLabel.layer.zPosition = 1
+        self.refreshButton.layer.zPosition = 1
         animateDogImage()
         
-        presenter.getNewDogFact()
+        //presenter.getNewDogFact()
     }
     
     override func viewDidLayoutSubviews() {
@@ -75,7 +86,7 @@ extension NewFactsViewController {
         dogImageView.center = self.view.center
         UIView.animate(withDuration: 2, animations: {
             //self.dogImageView.center = newCenter
-            self.dogImageView.frame = CGRect(x: self.view.center.x-50, y: self.view.center.y-300, width: 100, height: 100)
+            self.dogImageView.frame = CGRect(x: self.view.center.x-50, y: self.view.center.y - (self.view.center.y)/1.2, width: 100, height: 100)
         }, completion: { done in
             self.presenter.getNewDogFact()
         })
@@ -86,6 +97,7 @@ extension NewFactsViewController {
 //MARK: - Presenter Methods
 extension NewFactsViewController : NewFactsPresenterDelegate {
     func presentDogFact(fact: String) {
+        self.factLabel.text = fact
         print(fact)
     }
 }

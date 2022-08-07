@@ -16,7 +16,7 @@
 		01ED1FBE289FCC5D00CB9F16 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1FBD289FCC5D00CB9F16 /* NetworkManager.swift */; };
 		01ED1FC4289FCCCE00CB9F16 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1FC3289FCCCE00CB9F16 /* Constants.swift */; };
 		01ED1FC6289FCDEF00CB9F16 /* NewFactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1FC5289FCDEF00CB9F16 /* NewFactsModel.swift */; };
-		01ED1FC8289FCE3C00CB9F16 /* NewFactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1FC7289FCE3C00CB9F16 /* NewFactsViewModel.swift */; };
+		01ED1FC8289FCE3C00CB9F16 /* NewFactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01ED1FC7289FCE3C00CB9F16 /* NewFactsPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		01ED1FBD289FCC5D00CB9F16 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		01ED1FC3289FCCCE00CB9F16 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		01ED1FC5289FCDEF00CB9F16 /* NewFactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFactsModel.swift; sourceTree = "<group>"; };
-		01ED1FC7289FCE3C00CB9F16 /* NewFactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFactsViewModel.swift; sourceTree = "<group>"; };
+		01ED1FC7289FCE3C00CB9F16 /* NewFactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFactsPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 		01ED1FC1289FCC8B00CB9F16 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				01ED1FC7289FCE3C00CB9F16 /* NewFactsViewModel.swift */,
+				01ED1FC7289FCE3C00CB9F16 /* NewFactsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01ED1FC8289FCE3C00CB9F16 /* NewFactsViewModel.swift in Sources */,
+				01ED1FC8289FCE3C00CB9F16 /* NewFactsPresenter.swift in Sources */,
 				01ED1FC4289FCCCE00CB9F16 /* Constants.swift in Sources */,
 				01ED1FBE289FCC5D00CB9F16 /* NetworkManager.swift in Sources */,
 				01ED1FAA289FCAED00CB9F16 /* NewFactsViewController.swift in Sources */,
