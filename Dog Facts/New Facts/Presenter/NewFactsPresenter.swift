@@ -27,20 +27,35 @@ extension NewFactsPresenter {
         let urlString = "https://dog-api.kinduff.com/api/facts?number=1"
         let url = URL(string: urlString)
         //make the call
-        NetworkManager().getApiData(forUrl: url!, resultType: NewFactsModel.self) { (result) in
+        NetworkManager().getApiData(forUrl: url!, resultType: NewFactsModel.self) { [weak self] result in
             switch result{
             case .success(let dogFacts):
-                //print(dogFacts.facts.count)
-                DispatchQueue.main.async {
-                    self.delegate?.presentDogFact(fact: dogFacts.facts.first ?? "")
-                }
-                
+                self?.processDogFact(dogFacts: dogFacts)
                 
             case .failure(let error):
                 print(error.localizedDescription)
-                //self.delegate?.stopAndHideLoader()
-                //self.delegate?.presentAlert(title: "Error" , message: error.localizedDescription)
             }
         }
     }
 }
+
+
+// MARK: - Private Methods
+extension NewFactsPresenter {
+    func processDogFact(dogFacts : NewFactsModel){
+        
+        let factString = dogFacts.facts.first
+        guard factString != nil else{
+            return 
+        }
+        
+        let processedString = factString!.trunc(length: 230)
+        
+        DispatchQueue.main.async {
+            self.delegate?.presentDogFact(fact: processedString)
+        }
+    }
+    
+    
+}
+

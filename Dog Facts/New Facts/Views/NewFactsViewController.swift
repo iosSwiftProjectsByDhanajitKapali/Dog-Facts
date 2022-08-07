@@ -20,7 +20,7 @@ class NewFactsViewController: UIViewController {
     private let dogImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "dog-58")
+        imageView.image = UIImage(named: Constants.Image.AssetImage.DOG_IMAGE)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -42,25 +42,15 @@ extension NewFactsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        
         addGradientLayer()
-        
-        self.refreshButton.layer.cornerRadius = 10
-        self.view.addSubview(dogImageView)
-        self.factLabel.layer.zPosition = 1
-        self.refreshButton.layer.zPosition = 1
+        setUpView()
         animateDogImage()
-        
-        //presenter.getNewDogFact()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        //dogImageView.frame = CGRect(x: self.view.center.x-50, y: self.view.center.y, width: 100, height: 100)
-        //dogImageView.center = self.view.center
     }
 }
-
 
 
 // MARK: - Private Methods
@@ -68,6 +58,13 @@ extension NewFactsViewController {
     func initialSetup() {
         //setting self delegate of presenter
         presenter = NewFactsPresenter(withDelegate : self)
+    }
+    
+    func setUpView() {
+        self.refreshButton.layer.cornerRadius = 10
+        self.view.addSubview(dogImageView)
+        self.factLabel.layer.zPosition = 1
+        self.refreshButton.layer.zPosition = 1
     }
     
     func addGradientLayer() {
@@ -85,7 +82,6 @@ extension NewFactsViewController {
     func animateDogImage() {
         dogImageView.center = self.view.center
         UIView.animate(withDuration: 2, animations: {
-            //self.dogImageView.center = newCenter
             self.dogImageView.frame = CGRect(x: self.view.center.x-50, y: self.view.center.y - (self.view.center.y)/1.2, width: 100, height: 100)
         }, completion: { done in
             self.presenter.getNewDogFact()
@@ -98,7 +94,6 @@ extension NewFactsViewController {
 extension NewFactsViewController : NewFactsPresenterDelegate {
     func presentDogFact(fact: String) {
         self.factLabel.text = fact
-        print(fact)
     }
 }
 

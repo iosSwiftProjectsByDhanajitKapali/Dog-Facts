@@ -23,7 +23,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fND-lP-ivb">
-                                <rect key="frame" x="80" y="717" width="254" height="45"/>
+                                <rect key="frame" x="80" y="747" width="254" height="45"/>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="F9W-7K-46e"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="fND-lP-ivb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="UEs-dK-2z2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cko-5t-93T" secondAttribute="trailing" constant="50" id="aNZ-kw-QMz"/>
                             <constraint firstItem="cko-5t-93T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="khq-Hs-hG4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fND-lP-ivb" secondAttribute="bottom" constant="100" id="oFP-tG-bFF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fND-lP-ivb" secondAttribute="bottom" constant="70" id="oFP-tG-bFF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fND-lP-ivb" secondAttribute="trailing" constant="80" id="xRu-HI-1X8"/>
                         </constraints>
                     </view>

@@ -12,7 +12,7 @@ struct Constants {
     
     struct Image {
         struct AssetImage{
-           
+           static let DOG_IMAGE = "dog-58"
         }
        
     }
