@@ -97,5 +97,11 @@ extension NewFactsViewController : NewFactsPresenterDelegate {
     func presentDogFact(fact: String) {
         self.factLabel.text = fact
     }
+    
+    func presentAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
 }
 

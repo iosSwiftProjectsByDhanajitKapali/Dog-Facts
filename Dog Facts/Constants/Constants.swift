@@ -18,6 +18,7 @@ struct Constants {
     }
     
     struct ErrorMessage {
+        static let Error = "Error"
         static let API_CALL_ERROR = "Error in API Call"
         static let NO_DATA_RECIEVED = "No Data Recieved"
         static let INVALID_RESPONSE = "Invalid Response Recieved"

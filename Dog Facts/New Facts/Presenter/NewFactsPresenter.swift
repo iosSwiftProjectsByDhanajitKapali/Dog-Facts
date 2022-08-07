@@ -9,6 +9,7 @@ import Foundation
 
 protocol NewFactsPresenterDelegate : AnyObject{
     func presentDogFact(fact : String)
+    func presentAlert(title: String, message: String)
 }
 
 class NewFactsPresenter {
@@ -35,6 +36,9 @@ extension NewFactsPresenter {
                 
             case .failure(let error):
                 print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.delegate?.presentAlert(title: Constants.ErrorMessage.Error, message: "Please try again later!")
+                }
             }
         }
     }
@@ -47,6 +51,9 @@ extension NewFactsPresenter {
         
         let factString = dogFacts.facts.first
         guard factString != nil else{
+            DispatchQueue.main.async {
+                self.delegate?.presentAlert(title: Constants.ErrorMessage.Error, message: "Please try again later!")
+            }
             return 
         }
         
